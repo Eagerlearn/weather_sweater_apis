@@ -16,4 +16,9 @@ class BaseService
       faraday.params['client_id'] = ENV['UNSPLASH_ACCESS_KEY']
     end
   end
+
+  def self.open_brewery_conn
+    Faraday.new('https://api.openbrewerydb.org') do |faraday|
+    end
+  end
 end
