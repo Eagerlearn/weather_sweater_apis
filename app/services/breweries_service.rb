@@ -14,12 +14,12 @@ class BreweriesService < BaseService
       faraday.params['lat'] = lat
       faraday.params['units'] = 'imperial'
     end
-    forecast = JSON.parse(city_forecast.body, symbolize_names: true)
+    forecast = JSON.parse(city.body, symbolize_names: true)
 
     breweries = open_brewery_conn.get('/breweries') do |faraday|
       faraday.params['by_city'] = location
       faraday.params['per_page'] = quantity
     end
-    JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(breweries.body, symbolize_names: true)
   end
 end
