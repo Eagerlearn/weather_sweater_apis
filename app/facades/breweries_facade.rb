@@ -4,7 +4,7 @@ class BreweriesFacade
     brewery_objects = breweries.map do |brewery|
       Brewery.new(brewery)
     end
-    [breweries]
+brewery_objects
   end
 end
 

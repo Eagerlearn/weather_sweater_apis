@@ -3,7 +3,7 @@ class Brewery
   attr_reader :id,
               :name,
               :brewery_type,
-              :city
+              :destination
 
   def initialize(data)
     @id           = data[:id]
