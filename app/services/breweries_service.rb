@@ -21,5 +21,6 @@ class BreweriesService < BaseService
       faraday.params['per_page'] = quantity
     end
     JSON.parse(breweries.body, symbolize_names: true)
+      # I have access to forecast and need to be able to add it to the serializer
   end
 end

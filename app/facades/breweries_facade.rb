@@ -7,3 +7,5 @@ class BreweriesFacade
     [breweries]
   end
 end
+
+#forecast response not properly integrated in order to pass to serializer
