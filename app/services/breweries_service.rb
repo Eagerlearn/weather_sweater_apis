@@ -1,8 +1,10 @@
 class BreweriesService < BaseService
-  def self.breweries_search(by_city)
+  def self.breweries_search(location, quantity)
     response = open_brewery_conn.get('/breweries') do |faraday|
-      faraday.params['by_city'] = by_city
+      faraday.params['by_city'] = location
+      faraday.params['per_page'] = quantity
     end
-    JSON.parse(response.body, symbolize_names: true)
+    x = JSON.parse(response.body, symbolize_names: true)
+    require "pry"; binding.pry
   end
 end
