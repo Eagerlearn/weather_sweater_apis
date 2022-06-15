@@ -39,7 +39,7 @@ RSpec.describe 'forecast api' do
     expect(forecasts[:attributes][:current_weather]).to have_key(:feels_like)
     expect(forecasts[:attributes][:current_weather][:feels_like]).to be_a(Float)
     expect(forecasts[:attributes][:current_weather]).to have_key(:uvi)
-    expect(forecasts[:attributes][:current_weather][:uvi]).to be_a(Float)
+    expect(forecasts[:attributes][:current_weather][:uvi]).to be_a(Integer)
     expect(forecasts[:attributes][:current_weather]).to have_key(:visibility)
     expect(forecasts[:attributes][:current_weather][:visibility]).to be_a(Integer)
     expect(forecasts[:attributes][:current_weather]).to have_key(:conditions)
