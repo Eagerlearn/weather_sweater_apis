@@ -1,25 +1,32 @@
 require 'rails_helper'
 
 describe "Users API" do
-  it "can create a new User", :vcr do
-    user = User.create!(email: 'mailto:myto@otymtest.com', password_digest: 'password')
-
-    headers = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
+  it "can create a new User" do
 
     body = {
-      "email": 'mailto:myto@otymtest.com',
-      "password": 'password',
-      "password_confirmation": 'password'
+      "email" => "non_user@register.com",
+      "password" => "password",
+      "password_confirmation" => "password"
     }
-    post '/api/v1/users', headers: headers, params: JSON.generate(body)
+    post '/api/v1/users', params: body, as: :json
 
+    results = JSON.parse(response.body, symbolize_names: true)
+
+    expected = {
+      "data": {
+        "type": "users",
+        "id": results[:data][:id],
+        "attributes": {
+          "email": results[:data][:attributes][:email],
+          "api_key": results[:data][:attributes][:api_key]
+        }
+      }
+    }
+    #
     expect(response).to be_successful
-    expect(user).to be_a(User)
-    # expect(response.content_type).to eq('application/json')
-    # expect(response).to have_http_status(:created)
-    # expect(response.status).to eq(201)
+    expect(response.body).to eq(expected.to_json)
+    expect(response.content_type).to eq('application/json')
+    expect(response).to have_http_status(:created)
+    expect(response.status).to eq(201)
   end
 end
