@@ -1,6 +1,6 @@
 class ForecastFacade
   def self.get_forecast_details(city)
-    city_weather = CityService.get_city_forecast(city)
+    city_weather = ForecastService.get_city_forecast(city)
 
     current = CurrentForecast.new(city_weather)
 
