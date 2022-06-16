@@ -12,4 +12,9 @@ class ForecastFacade
     end
     [current, daily, hourly]
   end
+
+  def self.weather_at_arrival(destination, travel_time)
+    ForecastService.get_city_forecast(origin)
+    # require "pry"; binding.pry
+  end
 end
