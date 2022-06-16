@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       resources :forecast, only: [:index]
       get '/backgrounds', to: 'backgrounds#show'
       post '/users', to: 'users#registration'
+      post '/sessions', to: 'sessions#login'
+      post '/road_trip', to: 'road_trips#create'
     end
   end
 end
