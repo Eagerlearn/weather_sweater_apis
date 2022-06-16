@@ -1,7 +1,7 @@
 # Weather Sweater
 
 
-# Plan you next road trip!
+# Plan your next road trip!
 + This Backend application was built to expose API endpoints which offer retrieval of weather, travel directions, user registration and login.
 + It was built to meet the demands of our FrontEnd stakeholder's wireframe specifications, as well as for broad base of FrontEnd API consumers.
 + The features include providing valid driving directions, and error handling for edge cases, in addition it provides location based images for dynamic rendering
@@ -21,13 +21,10 @@
 * WEATHER_API_KEY: <Your Key Here>
 * UNSPLASH_API_KEY: <Your Key Here>
 
-## BackEnd Available Endpoints - Postman Collection
-* [Click this link](https://www.getpostman.com/collections/03352a860b564709d906)
-* Copy the entire text
-* Open Postman, select "Import" from top left of page, then "Raw text" from the top line
-* Paste the entire text
-* Click "Continue", then "Import"
-* Check out the endpoint examples - we have calls to the external APIs consumed by our app, as well as demonstrations of the responses returned from our own API endpoints!
+## BackEnd Available Endpoints
+* [Mapquest Directions](http://www.mapquestapi.com/directions/v2/route)
+* [Mapquest Geocoding](http://www.mapquestapi.com/geocoding/v1/address)
+* [OpenWeather](https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key})
 
 ## Contributors
 
