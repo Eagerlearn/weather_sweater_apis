@@ -10,7 +10,6 @@ class RoadTrip
       @end_city       = destination
       @travel_time    = duration
       @weather_at_eta = nested_weather(weather)
-      # require "pry"; binding.pry
   end
 
   def nested_weather(weather)

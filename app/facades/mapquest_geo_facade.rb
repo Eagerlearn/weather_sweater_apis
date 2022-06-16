@@ -7,9 +7,8 @@ class MapquestGeoFacade
     else
       {
         formatted_time: travel_time[:route][:formattedTime],
-        real_time: travel_time[:route][:realTime]
+        real_time: travel_time[:route][:time]
       }
     end
-    # require "pry"; binding.pry
   end
 end
