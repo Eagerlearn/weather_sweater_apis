@@ -14,7 +14,9 @@ class ForecastFacade
   end
 
   def self.weather_at_arrival(destination, travel_time)
-    ForecastService.get_city_forecast(origin)
-    # require "pry"; binding.pry
+    forecast = ForecastService.get_city_forecast(destination)
+    forecast[:hourly].find do |hour|
+      hour[:dt] >= (Time.now.to_i + travel_time[:real_time])
+    end
   end
 end
