@@ -1,5 +1,5 @@
 # Weather Sweater
-![Weather Sweater (1)](https://user-images.githubusercontent.com/77861247/173090073-d36a5dd9-64a8-49dd-a921-3f6c5d330a6d.jpg)
+
 
 # Plan you next road trip!
 + This Backend application was built to expose API endpoints which offer retrieval of weather, travel directions, user registration and login.
