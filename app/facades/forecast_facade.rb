@@ -1,6 +1,6 @@
 class ForecastFacade
   def self.get_forecast_details(city)
-    city_weather = CityService.get_city_forecast(city)
+    city_weather = ForecastService.get_city_forecast(city)
 
     current = CurrentForecast.new(city_weather)
 
@@ -11,5 +11,12 @@ class ForecastFacade
       HourlyForecast.new(hourly_forecast)
     end
     [current, daily, hourly]
+  end
+
+  def self.weather_at_arrival(destination, travel_time)
+    forecast = ForecastService.get_city_forecast(destination)
+    forecast[:hourly].find do |hour|
+      hour[:dt] >= (Time.now.to_i + travel_time[:real_time])
+    end
   end
 end
