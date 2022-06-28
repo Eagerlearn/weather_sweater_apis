@@ -1,10 +1,19 @@
 class MapquestGeoService < BaseService
+
+  def self.base_url
+    "http://www.mapquestapi.com"
+  end
+
+  def self.set_api_key(connection)
+    connection.params['key'] = ENV['MAPQ_API_KEY']
+  end
+
   def self.get_coordinates(city)
 
-    response = mapquest_conn.get('/geocoding/v1/address') do |faraday|
-      faraday.params['location'] = city
+    response = connection.get('/geocoding/v1/address') do |connection|
+      connection.params['location'] = city
     end
-    JSON.parse(response.body, symbolize_names: true)
+    format_reponse(response)
   end
 
   def self.get_trip_directions(origin, destination)
