@@ -18,7 +18,6 @@ class ForecastService < BaseService
       connection.params['lat'] = lat
       connection.params['units'] = 'imperial'
     end
-    # require "pry"; binding.pry
     format_reponse(response)
   end
 

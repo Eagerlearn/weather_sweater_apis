@@ -1,9 +1,19 @@
 class BackgroundsService < BaseService
+
+  def self.base_url
+    "https://api.unsplash.com"
+  end
+
+  def self.set_api_key(connection)
+    connection.params['client_id'] = ENV['UNSPLASH_ACCESS_KEY']
+  end
+
   def self.search_for_backgrounds(city)
-    response = unsplash_conn.get('/search/photos') do |faraday|
-      faraday.params['query'] = city
-      faraday.params['orientation'] = 'landscape'
+
+    response = connection.get('/search/photos') do |connection|
+      connection.params['query'] = city
+      connection.params['orientation'] = 'landscape'
     end
-    JSON.parse(response.body, symbolize_names: true)
+    format_reponse(response)
   end
 end

@@ -18,10 +18,10 @@ class MapquestGeoService < BaseService
 
   def self.get_trip_directions(origin, destination)
 
-    response = mapquest_conn.get('/directions/v2/route') do |faraday|
-      faraday.params['from'] = origin
-      faraday.params['to'] = destination
+    response = connection.get('/directions/v2/route') do |connection|
+      connection.params['from'] = origin
+      connection.params['to'] = destination
     end
-    JSON.parse(response.body, symbolize_names: true)
+    format_reponse(response)
   end
 end
